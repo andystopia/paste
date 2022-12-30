@@ -109,6 +109,9 @@ Use `$var:snake` to convert CamelCase input to snake\_case.
 Use `$var:camel` to convert snake\_case to CamelCase.
 These compose, so for example `$var:snake:upper` would give you SCREAMING\_CASE.
 
+Use `$var:kebab_camel`, to convert from kebab case to camel case (pascal case). 
+
+
 The precise Unicode conversions are as defined by [`str::to_lowercase`] and
 [`str::to_uppercase`].
 

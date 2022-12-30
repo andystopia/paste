@@ -174,6 +174,27 @@ pub(crate) fn paste(segments: &[Segment]) -> Result<String> {
                     }
                 };
                 match ident.to_string().as_str() {
+                    "kebab_camel" =>  { 
+                        let mut acc = String::new();
+                        let mut prev = '-';
+                        for ch in last.chars() { 
+                            if ch != '-' { 
+                                if prev == '-' { 
+                                    for chu in ch.to_uppercase() { 
+                                        acc.push(chu)
+                                    }
+                                } else if prev.is_uppercase() { 
+                                    for chl in ch.to_lowercase() { 
+                                        acc.push(chl);
+                                    }
+                                } else { 
+                                    acc.push(ch);
+                                }
+                            }
+                            prev = ch;
+                        }
+                        evaluated.push(acc);
+                    }
                     "lower" => {
                         evaluated.push(last.to_lowercase());
                     }
